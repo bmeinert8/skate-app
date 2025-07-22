@@ -1,0 +1,27 @@
+.page-header {
+  font-family: 'Orbitron', sans-serif;
+  padding: 0 10px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.decoration-div {
+  width: 50px;
+}
+
+.hamburger-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.nav-menu-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
