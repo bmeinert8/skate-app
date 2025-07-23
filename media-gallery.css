@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* header section */
+.page-header {
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-family: 'orbitron', sans-serif;
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+
+/* hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+.bar-middle {
+  width: 85%;
+  height: 3px;
+  background-color: black;
+  align-self: flex-end;
+}
+
+/* hamburger animation for active state */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar-middle {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+.nav-menu a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+/* display navigation on mobile adn tablet */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    transition: left 0.3s ease;
+  }
+
+  .nav-menu.active {
+    left: 65%;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .nav-menu a {
+    font-size: 1.2rem;
+  }
+}
