@@ -68,6 +68,8 @@ body {
 .nav-menu ul {
   display: flex;
   list-style: none;
+  background-color: white;
+  height: 250px;
 }
 
 .nav-menu li {
@@ -83,6 +85,10 @@ body {
 .nav-menu a:hover {
   text-decoration: underline;
   text-underline-offset: 10px;
+}
+
+.video-thumbnail {
+  border-radius: 8px;
 }
 
 /* display navigation on mobile adn tablet */
@@ -115,5 +121,67 @@ body {
 
   .nav-menu a {
     font-size: 1.2rem;
+  }
+
+  .media-gallery-main {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 10px 10px;
+    gap: 20px;
+  }
+
+  .vertical-text {
+    height: 400px;
+    padding: 10px;
+  }
+
+  .vertical-text ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+
+  .vertical-text li {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .vertical-text a {
+    opacity: 0.5;
+    color: black;
+    text-decoration: none;
+  }
+
+  a.selected {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+
+  .vertical-text a:hover {
+    opacity: 1;
+  }
+
+  .video-thumbnail {
+    width: 300px;
+    height: 185px;
+  }
+
+  .video-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+
+  .section-media {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
