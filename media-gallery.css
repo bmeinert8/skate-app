@@ -185,8 +185,6 @@ body {
 
   a.selected {
     opacity: 1;
-    text-decoration: underline;
-    text-underline-offset: 5px;
   }
 
   .vertical-text a:hover {
