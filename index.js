@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
   const selectionMenu = document.querySelector('.js-selection');
-  const moreButton = document.querySelector('.js-elipsis');
-  const videoDescription = document.querySelector('.js-video-description');
-  const collapseButton = document.querySelector('.js-collapse');
 
   // Toggle the navigation menu when the hamburger icon is clicked
   hamburger.addEventListener('click', () => {
@@ -56,17 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Toggle video description visibility when the more icon is clicked
-  moreButton.addEventListener('click', () => {
-    videoDescription.classList.toggle('hidden');
-    collapseButton.classList.remove('hidden');
-    moreButton.classList.toggle('hidden');
-  });
+  // Event delegation for expand/collapse buttons
+  const sectionMedia = document.querySelector('.section-media');
+  sectionMedia.addEventListener('click', (e) => {
+    // Find the closest video article to the clicked button
+    const videoArticle = e.target.closest('.video-article');
+    if (!videoArticle) return; // Exit if no video article found
 
-  // Collapse video description when the collapse icon is clicked
-  collapseButton.addEventListener('click', () => {
-    videoDescription.classList.add('hidden');
-    collapseButton.classList.add('hidden');
-    moreButton.classList.remove('hidden');
+    // Get the elements within this video article
+    const expandButton = videoArticle.querySelector('.js-elipsis');
+    const collapseButton = videoArticle.querySelector('.js-collapse');
+    const description = videoArticle.querySelector('.js-video-description');
+
+    // Handle expand button click
+    if (e.target.closest('.js-elipsis')) {
+      description.classList.remove('hidden');
+      collapseButton.classList.remove('hidden');
+      expandButton.classList.add('hidden');
+    }
+
+    // Handle collapse button click
+    if (e.target.closest('.js-collapse')) {
+      description.classList.add('hidden');
+      collapseButton.classList.add('hidden');
+      expandButton.classList.remove('hidden');
+    }
   });
 });

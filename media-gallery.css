@@ -108,6 +108,9 @@ body {
 .collapse-icon {
   align-self: flex-end;
   margin-right: 10px;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .more-icon:hover {
