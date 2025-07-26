@@ -104,7 +104,8 @@ body {
   align-items: center;
 }
 
-.more-icon {
+.more-icon,
+.collapse-icon {
   align-self: flex-end;
   margin-right: 10px;
 }
@@ -113,12 +114,25 @@ body {
   cursor: pointer;
 }
 
+.collapse-icon:hover {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
 
+.section-media ul.list-hidden {
+  display: none;
+}
 .section-navigation {
   height: 500px;
+}
+
+.video-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 10px;
 }
 
 @media (max-width: 768px) {

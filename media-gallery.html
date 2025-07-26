@@ -38,14 +38,14 @@
       <section class="section-navigation">
         <nav class="vertical-text js-selection">
           <ul>
-            <li><a href="#new">Trending</a></li>
+            <li><a href="#trending">Trending</a></li>
             <li><a href="#popular">Popular</a></li>
-            <li><a class="selected" href="#trending">New</a></li>
+            <li><a class="selected" href="#new">New</a></li>
           </ul>
         </nav>
       </section>
       <section class="section-media">
-        <ul class="new-list">
+        <ul class="new" id="new">
           <li>
             <article class="video-article">
               <img
@@ -59,9 +59,9 @@
               <img
                 src="./images/more.png"
                 alt="elipsis icon"
-                class="more-icon"
+                class="more-icon js-elipsis"
               />
-              <p class="video-description hidden">
+              <p class="video-description js-video-description hidden">
                 Bataleon presents Flat Earth, our first-ever team movie, filmed
                 in three diverse locations—Japan, Norway, and the Alps. This
                 film highlights our team’s spirit, giving each rider the chance
@@ -70,6 +70,44 @@
                 the shared experience and bond that make our team special.
                 Smile, it’s snowboarding
               </p>
+              <img
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
+              />
+            </article>
+          </li>
+        </ul>
+        <ul class="popular list-hidden" id="popular">
+          <li>
+            <article class="video-article">
+              <img
+                src="./images/flat-earth-ss.jpg"
+                alt="Flat Earth Thumbnail"
+                class="video-thumbnail"
+              />
+              <h2 class="video-title">
+                Flat Earth - A movie by Bataleon Snowboards
+              </h2>
+              <img
+                src="./images/more.png"
+                alt="elipsis icon"
+                class="more-icon js-elipsis"
+              />
+              <p class="video-description js-video-description hidden">
+                Bataleon presents Flat Earth, our first-ever team movie, filmed
+                in three diverse locations—Japan, Norway, and the Alps. This
+                film highlights our team’s spirit, giving each rider the chance
+                to showcase their unique style and what they bring to the crew.
+                With a strong lineup of Bataleon riders, Flat Earth emphasizes
+                the shared experience and bond that make our team special.
+                Smile, it’s snowboarding
+              </p>
+              <img
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
+              />
             </article>
           </li>
           <li>
@@ -85,9 +123,9 @@
               <img
                 src="./images/more.png"
                 alt="elipsis icon"
-                class="more-icon"
+                class="more-icon js-elipsis"
               />
-              <p class="video-description hidden">
+              <p class="video-description js-video-description hidden">
                 Bataleon presents Flat Earth, our first-ever team movie, filmed
                 in three diverse locations—Japan, Norway, and the Alps. This
                 film highlights our team’s spirit, giving each rider the chance
@@ -96,6 +134,44 @@
                 the shared experience and bond that make our team special.
                 Smile, it’s snowboarding
               </p>
+              <img
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
+              />
+            </article>
+          </li>
+        </ul>
+        <ul class="trending list-hidden" id="trending">
+          <li>
+            <article class="video-article">
+              <img
+                src="./images/flat-earth-ss.jpg"
+                alt="Flat Earth Thumbnail"
+                class="video-thumbnail"
+              />
+              <h2 class="video-title">
+                Flat Earth - A movie by Bataleon Snowboards
+              </h2>
+              <img
+                src="./images/more.png"
+                alt="elipsis icon"
+                class="more-icon js-elipsis"
+              />
+              <p class="video-description js-video-description hidden">
+                Bataleon presents Flat Earth, our first-ever team movie, filmed
+                in three diverse locations—Japan, Norway, and the Alps. This
+                film highlights our team’s spirit, giving each rider the chance
+                to showcase their unique style and what they bring to the crew.
+                With a strong lineup of Bataleon riders, Flat Earth emphasizes
+                the shared experience and bond that make our team special.
+                Smile, it’s snowboarding
+              </p>
+              <img
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
+              />
             </article>
           </li>
           <li>
@@ -111,9 +187,9 @@
               <img
                 src="./images/more.png"
                 alt="elipsis icon"
-                class="more-icon"
+                class="more-icon js-elipsis"
               />
-              <p class="video-description hidden">
+              <p class="video-description js-video-description hidden">
                 Bataleon presents Flat Earth, our first-ever team movie, filmed
                 in three diverse locations—Japan, Norway, and the Alps. This
                 film highlights our team’s spirit, giving each rider the chance
@@ -122,6 +198,11 @@
                 the shared experience and bond that make our team special.
                 Smile, it’s snowboarding
               </p>
+              <img
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
+              />
             </article>
           </li>
           <li>
@@ -137,9 +218,9 @@
               <img
                 src="./images/more.png"
                 alt="elipsis icon"
-                class="more-icon"
+                class="more-icon js-elipsis"
               />
-              <p class="video-description hidden">
+              <p class="video-description js-video-description hidden">
                 Bataleon presents Flat Earth, our first-ever team movie, filmed
                 in three diverse locations—Japan, Norway, and the Alps. This
                 film highlights our team’s spirit, giving each rider the chance
@@ -148,32 +229,11 @@
                 the shared experience and bond that make our team special.
                 Smile, it’s snowboarding
               </p>
-            </article>
-          </li>
-          <li>
-            <article class="video-article">
               <img
-                src="./images/flat-earth-ss.jpg"
-                alt="Flat Earth Thumbnail"
-                class="video-thumbnail"
+                src="./images/collapse.png"
+                alt="collapse icon"
+                class="collapse-icon js-collapse hidden"
               />
-              <h2 class="video-title">
-                Flat Earth - A movie by Bataleon Snowboards
-              </h2>
-              <img
-                src="./images/more.png"
-                alt="elipsis icon"
-                class="more-icon"
-              />
-              <p class="video-description hidden">
-                Bataleon presents Flat Earth, our first-ever team movie, filmed
-                in three diverse locations—Japan, Norway, and the Alps. This
-                film highlights our team’s spirit, giving each rider the chance
-                to showcase their unique style and what they bring to the crew.
-                With a strong lineup of Bataleon riders, Flat Earth emphasizes
-                the shared experience and bond that make our team special.
-                Smile, it’s snowboarding
-              </p>
             </article>
           </li>
         </ul>
