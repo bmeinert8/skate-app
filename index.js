@@ -7,7 +7,33 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('videos.json')
     .then((response) => response.json())
     .then((data) => {
-      console.log('Videos loaded:', data);
+      // Store videos in a variable for later use
+      const videos = data;
+
+      // Function to render videos into a specified list
+      function renderVideos(listId, videoList) {
+        const listElement = document.querySelector(`#${listId}`);
+        listElement.innerHTML = '';
+        videoList.forEach((video) => {
+          const videoArticle = `
+          <li class="video-article">
+            <img class="video-thumbnail" src="${video.thumbnailUrl}" alt="${video.title} thumbnail">
+            <h3 class="video-title">${video.title}</h3>
+            <button class="more-icon js-elipsis" aria-label="Expand video description">
+              <img src="./images/more.png" alt="Expand icon">
+            </button>
+            <button class="collapse-icon js-collapse hidden" aria-label="Collapse video description">
+              <img src="./images/collapse.png" alt="Collapse icon">
+            </button>
+            <p class="video-description js-video-description hidden">${video.description}</p>
+          </li>
+          `;
+          listElement.insertAdjacentHTML('beforeend', videoArticle);
+        });
+      }
+
+      // Render all videos into the "New" list initially
+      renderVideos('new', videos);
     })
     .catch((error) => {
       console.error('Error loading videos:', error);

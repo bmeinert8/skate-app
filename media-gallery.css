@@ -107,7 +107,7 @@ body {
 .more-icon,
 .collapse-icon {
   align-self: flex-end;
-  margin-right: 10px;
+  margin: 10px 10px 5px 0;
   border: none;
   background: none;
   padding: 0;
