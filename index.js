@@ -34,6 +34,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Render all videos into the "New" list initially
       renderVideos('new', videos);
+
+      // Toggle selection menu and render filtered videos
+      selectionMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          // Prevent default link behavior if needed
+          e.preventDefault();
+
+          // Remove 'selected' class from all links
+          selectionMenu.querySelectorAll('a').forEach((item) => {
+            item.classList.remove('selected');
+          });
+
+          // Add 'selected' class to clicked link
+          link.classList.add('selected');
+
+          // Get the href attribute (e.g., "#new") and remove the "#" to match the list ID
+          const targetId = link.getAttribute('href').substring(1);
+
+          // Filter videos based on the target list
+          let filteredVideos = videos;
+          if (targetId === 'popular') {
+            filteredVideos = videos.filter((video) => video.isPopular);
+          } else if (targetId === 'trending') {
+            filteredVideos = videos.filter((video) => video.isTrending);
+          }
+
+          // Clear all lists
+          const lists = document.querySelectorAll(
+            'ul[id="new"], ul[id="popular"], ul[id="trending"]'
+          );
+          lists.forEach((list) => {
+            list.innerHTML = '';
+            list.classList.add('list-hidden');
+          });
+
+          // Render filtered videos to the target list and show it
+          renderVideos(targetId, filteredVideos);
+          document
+            .querySelector(`#${targetId}`)
+            .classList.remove('list-hidden');
+        });
+      });
     })
     .catch((error) => {
       console.error('Error loading videos:', error);
@@ -53,39 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Toggle selection menu when the selection is clicked
-  selectionMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      // Prevent default link behavior if needed
-      e.preventDefault();
-
-      // Remove 'selected' class from all links
-      selectionMenu.querySelectorAll('a').forEach((item) => {
-        item.classList.remove('selected');
-      });
-
-      // Add 'selected' class to clicked link
-      link.classList.add('selected');
-
-      // Get the href attribute (e.g., "#new") and remove the "#" to match the list ID
-      const targetId = link.getAttribute('href').substring(1);
-
-      // Get all lists
-      const lists = document.querySelectorAll(
-        'ul[id="new"], ul[id="popular"], ul[id="trending"]'
-      );
-
-      // Hide all lists and show the target list
-      lists.forEach((list) => {
-        if (list.id === targetId) {
-          list.classList.remove('list-hidden');
-        } else {
-          list.classList.add('list-hidden');
-        }
-      });
     });
   });
 
