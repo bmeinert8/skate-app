@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Flat Earth - A movie by Bataleon Snowboards",
+    "description": "Bataleon presents Flat Earth, our first-ever team movie, filmed in three diverse locations—Japan, Norway, and the Alps. This film highlights our team’s spirit, giving each rider the chance to showcase their unique style and what they bring to the crew. With a strong lineup of Bataleon riders, Flat Earth emphasizes the shared experience and bond that make our team special. Smile, it’s snowboarding",
+    "thumbnailUrl": "./images/flat-earth-ss.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=y6rnhmil_u8",
+    "category": "snowboarding",
+    "isPopular": true,
+    "isTrending": false,
+    "dateAdded": "2025-07-01"
+  },
+  {
+    "id": 2,
+    "title": "You Are Inside Your Heart | VANS",
+    "description": "You Are Inside Your Heart is a video portrait of Benny Urban. Benny has been out shooting for this film alongside the Vans Snow Team across Europe during the last two and a half years.\nShot on location in Norway, Finland, Austria, Slovakia, and Germany.\nFor this film we united with director Alexander Tank who’s one of Benny’s best childhood friends who was a former Snowboard Pro himself and is now a successful movie director.\nBenny: It’s been such an incredible opportunity to have had so much creative freedom on creating a film with Vans. It’s probably been the craziest two years of my life since our daughter was born right in the middle of the project. It’s the best thing that has ever happened to me and throughout this whole filming process, I was learning so much about fatherhood and simultaneously trying to power through with this project and continuing my life as a professional snowboarder.\nThe film is starring: Antti Jussila, Nils Arvidsson, Sebi Springeth, Dominik Wagner, Simon Gschaider, Jake Kuzyk, Jill Perkins, Benny Urban. Filmed by: Alex Pfeffer, Harry Hagan, Anton Kiiski, Peter Mader, Aleksi Kemiläinen, Jukka Metsäaho, Mikael Ahtikari, Robin Pailler. Directed and edited by: Alexander Tank. Music in order: \"No Excuse\" by Stalag 13, \"Mom’s Birthday\" by Max High, \"Kontrole\" by De Brassers, \"Moon 11\" by Moon B, \"Eyes won’t let me open\" by Stennes, \"Castles\" by Richard Vain.",
+    "thumbnailUrl": "./images/Vans-inside-your-heart-ss.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=HfCIWKEC5SY",
+    "category": "snowboarding",
+    "isPopular": false,
+    "isTrending": true,
+    "dateAdded": "2025-07-15"
+  },
+  {
+    "id": 3,
+    "title": "Girl Skateboards SPLINTER",
+    "description": "Short Girl Films presents “Splinter” starring\nSimon Bannerot\nNiels Bennett\nAndrew Brophy\nRowan Davis\nGriffin Gass\nBreana Geering\nCory Kennedy\nSean Malto\nRick McCrank\nand Tyler Pacheco\n\nGuest Appearances by\nJames Capps\nMatteo Vandeputte\nEvan Smith\nJasper Dohrs\n\nCinematography by\nDaniel Policelli\nWill McDonald\nand Robin Wilson\n\nEdited by\nDaniel Policelli\n\nVisual Effects\nJohannes Gamble\n\nArt Direction\nAndy Jenkins\nThe Art Dump\n\n16mm Cinematography\nJohn Marello\n\nExecutive Producers\nRick Howard\nMike Carroll\nMegan Baltimore\nSpike Jonze\n\nProduced by\nSam Smyth\n\nAdditional Filming\nJohn Marello\nAdam Anorga\nTorsten Frank\nMoritz Mauch\nFelix Soto\nRye Beres\nRedd Sarson\nAngelo Fajardo\nKevin Stake\nJon Wolf\nShari White\nConor McGivern\nAnt Travis\nRich Smith\nTim Fulton\nShqipron Bobaj\nBrian Slattery\nTim Cobden\nZach Silver\nRitt Pong\nJanchai Montrelerdrasme\nOtto Ray\nGeorge Kousoulis\nRowan Davis\nTyler Pacheco\nMike Carroll",
+    "thumbnailUrl": "./images/splinter-ss.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Aje-5OPG2kY",
+    "category": "skateboarding",
+    "isPopular": true,
+    "isTrending": true,
+    "dateAdded": "2025-07-23"
+  }
+]

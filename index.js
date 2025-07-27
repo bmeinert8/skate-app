@@ -3,6 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.querySelector('.nav-menu');
   const selectionMenu = document.querySelector('.js-selection');
 
+  // Load videos from JSON
+  fetch('videos.json')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('Videos loaded:', data);
+    })
+    .catch((error) => {
+      console.error('Error loading videos:', error);
+    });
+
   // Toggle the navigation menu when the hamburger icon is clicked
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
