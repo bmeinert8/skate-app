@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Render all videos into the "New" list initially
-      renderVideos('new', videos);
+      const sortedNewVideos = [...videos].sort(
+        (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
+      );
+      renderVideos('new', sortedNewVideos);
 
       // Toggle selection menu and render filtered videos
       selectionMenu.querySelectorAll('a').forEach((link) => {
@@ -58,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
             filteredVideos = videos.filter((video) => video.isPopular);
           } else if (targetId === 'trending') {
             filteredVideos = videos.filter((video) => video.isTrending);
+          } else if (targetId === 'new') {
+            filteredVideos = [...videos].sort(
+              (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
+            );
           }
 
           // Clear all lists
