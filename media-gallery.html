@@ -45,6 +45,44 @@
         </nav>
       </section>
       <section class="section-media js-section-media">
+        <form action="/search" role="search" method="get" class="search-form">
+          <label for="search-input" class="hidden">Search</label>
+          <input
+            type="search"
+            id="search-input"
+            name="q"
+            placeholder="Search"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">
+            <img src="./images/search.png" alt="search icon" />
+          </button>
+          <button class="filter-button">
+            <img src="./images/filter.png" alt="filter icon" />
+          </button>
+          <div class="filter-list hidden">
+            <ul>
+              <li>
+                <input
+                  type="checkbox"
+                  id="filter-1"
+                  name="skateboarding"
+                  value="skateboarding"
+                />
+                <label for="filter-1">skateboarding</label>
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  id="filter-2"
+                  name="snowboarding"
+                  value="snowboarding"
+                />
+                <label for="filter-2">snowboarding</label>
+              </li>
+            </ul>
+          </div>
+        </form>
         <ul class="new" id="new"></ul>
         <ul class="popular list-hidden" id="popular"></ul>
         <ul class="trending list-hidden" id="trending"></ul>
