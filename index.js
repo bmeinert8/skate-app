@@ -95,6 +95,54 @@ document.addEventListener('DOMContentLoaded', () => {
         // Revent scrolling by restoring focus to the button
         filterButton.focus();
       });
+
+      // Track the current category filter (null means show all videos)
+      let currentCategory = null;
+
+      // Handle category filter changes
+      const categoryRadios = document.querySelectorAll(
+        'input[name="category"]'
+      );
+      categoryRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          currentCategory = radio.checked ? radio.value : null;
+          // Get the currently visible list
+          const visibleList = document.querySelector(
+            'ul[id="new"]:not(.list-hidden), ul[id="popular"]:not(.list-hidden), ul[id="trending"]:not(.list-hidden)'
+          );
+          const targetId = visibleList ? visibleList.id : 'new'; // Default to 'new' if none visible
+          // Filter and sort videos based on the current list and category
+          let filteredVideos = videos;
+          if (currentCategory) {
+            filteredVideos = videos.filter(
+              (video) => video.category === currentCategory
+            );
+          }
+          if (targetId === 'popular') {
+            filteredVideos = filteredVideos.filter((video) => video.isPopular);
+          } else if (targetId === 'trending') {
+            filteredVideos = filteredVideos.filter((video) => video.isTrending);
+          } else if (targetId === 'new') {
+            filteredVideos = [...filteredVideos].sort(
+              (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
+            );
+          }
+          // Clear and render videos to the current list
+          const lists = document.querySelectorAll(
+            'ul[id="new"], ul[id="popular"], ul[id="trending"]'
+          );
+          lists.forEach((list) => {
+            list.innerHTML = '';
+            if (list.id !== targetId) {
+              list.classList.add('list-hidden');
+            }
+          });
+          renderVideos(targetId, filteredVideos);
+          document
+            .querySelector(`#${targetId}`)
+            .classList.remove('list-hidden');
+        });
+      });
     })
     .catch((error) => {
       console.error('Error loading videos:', error);
