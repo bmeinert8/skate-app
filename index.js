@@ -87,10 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
       //Toggle filter list visibility
       const filterButton = document.querySelector('.filter-button');
       const filterList = document.querySelector('#filter-list');
-      filterButton.addEventListener('click', () => {
+      filterButton.addEventListener('click', (e) => {
+        e.preventDefault(); //Preven form submission from default behavior (had unexpected scrolling on click)
         const isHidden = filterList.classList.contains('hidden');
         filterList.classList.toggle('hidden');
         filterButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        // Revent scrolling by restoring focus to the button
+        filterButton.focus();
       });
     })
     .catch((error) => {
