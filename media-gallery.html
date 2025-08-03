@@ -45,7 +45,7 @@
         </nav>
       </section>
       <section class="section-media js-section-media">
-        <form action="/search" role="search" method="get" class="search-form">
+        <form class="search-form">
           <label for="search-input" class="hidden">Search</label>
           <input
             type="search"
@@ -57,10 +57,14 @@
           <button type="submit" class="search-button">
             <img src="./images/search.png" alt="search icon" />
           </button>
-          <button class="filter-button">
-            <img src="./images/filter.png" alt="filter icon" />
+          <button
+            class="filter-button"
+            aria-controls="filter-list"
+            aria-expanded="false"
+          >
+            <img src="./images/filter.png" alt="Filter icon" />
           </button>
-          <div class="filter-list hidden">
+          <div class="filter-list hidden" id="filter-list">
             <ul>
               <li>
                 <input

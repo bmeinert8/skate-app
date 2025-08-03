@@ -83,6 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .classList.remove('list-hidden');
         });
       });
+
+      //Toggle filter list visibility
+      const filterButton = document.querySelector('.filter-button');
+      const filterList = document.querySelector('#filter-list');
+      filterButton.addEventListener('click', () => {
+        const isHidden = filterList.classList.contains('hidden');
+        filterList.classList.toggle('hidden');
+        filterButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      });
     })
     .catch((error) => {
       console.error('Error loading videos:', error);

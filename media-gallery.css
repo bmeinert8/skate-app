@@ -121,10 +121,6 @@ body {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
-
 .section-media ul.list-hidden {
   display: none;
 }
@@ -175,6 +171,29 @@ body {
 
 .filter-button:hover {
   cursor: pointer;
+}
+
+.filter-list {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -266,5 +285,10 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+
+  .filter-list {
+    top: 210px;
+    right: 0; /* Adjust position for mobile */
   }
 }
