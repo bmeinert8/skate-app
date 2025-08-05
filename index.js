@@ -55,14 +55,19 @@ document.addEventListener('DOMContentLoaded', () => {
           // Get the href attribute (e.g., "#new") and remove the "#" to match the list ID
           const targetId = link.getAttribute('href').substring(1);
 
-          // Filter videos based on the target list
+          // Filter and sort videos based on the target list and current category
           let filteredVideos = videos;
+          if (currentCategory) {
+            filteredVideos = videos.filter(
+              (video) => video.category === currentCategory
+            );
+          }
           if (targetId === 'popular') {
-            filteredVideos = videos.filter((video) => video.isPopular);
+            filteredVideos = filteredVideos.filter((video) => video.isPopular);
           } else if (targetId === 'trending') {
-            filteredVideos = videos.filter((video) => video.isTrending);
+            filteredVideos = filteredVideos.filter((video) => video.isTrending);
           } else if (targetId === 'new') {
-            filteredVideos = [...videos].sort(
+            filteredVideos = [...filteredVideos].sort(
               (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
             );
           }
@@ -96,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterButton.focus();
       });
 
+      // Track the current category filter (null means show all videos)
       // Track the current category filter (null means show all videos)
       let currentCategory = null;
 
