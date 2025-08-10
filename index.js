@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const selectionMenu = document.querySelector('.js-selection');
-
-  // Load videos from JSON
   fetch('videos.json')
     .then((response) => response.json())
     .then((data) => {
@@ -13,53 +8,54 @@ document.addEventListener('DOMContentLoaded', () => {
       // Function to render videos into a specified list
       function renderVideos(listId, videoList) {
         const listElement = document.querySelector(`#${listId}`);
-        listElement.innerHTML = '';
+        listElement.innerHTML = ''; // Clear existing content
         videoList.forEach((video) => {
           const videoArticle = `
-          <li class="video-article">
-            <img class="video-thumbnail" src="${video.thumbnailUrl}" alt="${video.title} thumbnail">
-            <h3 class="video-title">${video.title}</h3>
-            <button class="more-icon js-elipsis" aria-label="Expand video description">
-              <img src="./images/more.png" alt="Expand icon">
-            </button>
-            <button class="collapse-icon js-collapse hidden" aria-label="Collapse video description">
-              <img src="./images/collapse.png" alt="Collapse icon">
-            </button>
-            <p class="video-description js-video-description hidden">${video.description}</p>
-          </li>
+            <li class="video-article">
+              <img class="video-thumbnail" src="${video.thumbnailUrl}" alt="${video.title} thumbnail">
+              <h3 class="video-title">${video.title}</h3>
+              <button class="more-icon js-elipsis" aria-label="Expand video description">
+                <img src="./images/more.png" alt="Expand icon">
+              </button>
+              <button class="collapse-icon js-collapse hidden" aria-label="Collapse video description">
+                <img src="./images/collapse.png" alt="Collapse icon">
+              </button>
+              <p class="video-description js-video-description hidden">${video.description}</p>
+            </li>
           `;
           listElement.insertAdjacentHTML('beforeend', videoArticle);
         });
       }
 
-      // Render all videos into the "New" list initially
+      // Render all videos into the "New" list initially, sorted by dateAdded (newest first)
       const sortedNewVideos = [...videos].sort(
         (a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)
       );
       renderVideos('new', sortedNewVideos);
 
       // Toggle selection menu and render filtered videos
+      const selectionMenu = document.querySelector('.js-selection');
       selectionMenu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', (e) => {
-          // Prevent default link behavior if needed
           e.preventDefault();
-
-          // Remove 'selected' class from all links
           selectionMenu.querySelectorAll('a').forEach((item) => {
             item.classList.remove('selected');
           });
-
-          // Add 'selected' class to clicked link
           link.classList.add('selected');
-
-          // Get the href attribute (e.g., "#new") and remove the "#" to match the list ID
           const targetId = link.getAttribute('href').substring(1);
 
-          // Filter and sort videos based on the target list and current category
+          // Filter and sort videos based on the target list and current filters
           let filteredVideos = videos;
           if (currentCategory) {
-            filteredVideos = videos.filter(
+            filteredVideos = filteredVideos.filter(
               (video) => video.category === currentCategory
+            );
+          }
+          if (currentSearchQuery) {
+            filteredVideos = filteredVideos.filter(
+              (video) =>
+                video.title.toLowerCase().includes(currentSearchQuery) ||
+                video.description.toLowerCase().includes(currentSearchQuery)
             );
           }
           if (targetId === 'popular') {
@@ -89,21 +85,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      //Toggle filter list visibility
+      // Expand/collapse video descriptions
+      const sectionMedia = document.querySelector('.section-media');
+      sectionMedia.addEventListener('click', (e) => {
+        const videoArticle = e.target.closest('.video-article');
+        if (!videoArticle) return;
+        const expandButton = videoArticle.querySelector('.js-elipsis');
+        const collapseButton = videoArticle.querySelector('.js-collapse');
+        const description = videoArticle.querySelector('.js-video-description');
+        if (e.target.closest('.js-elipsis')) {
+          description.classList.remove('hidden');
+          collapseButton.classList.remove('hidden');
+          expandButton.classList.add('hidden');
+        }
+        if (e.target.closest('.js-collapse')) {
+          description.classList.add('hidden');
+          collapseButton.classList.add('hidden');
+          expandButton.classList.remove('hidden');
+        }
+      });
+
+      // Track the current category filter and search query
+      let currentCategory = null;
+      let currentSearchQuery = '';
+
+      // Toggle filter list visibility
       const filterButton = document.querySelector('.filter-button');
       const filterList = document.querySelector('#filter-list');
       filterButton.addEventListener('click', (e) => {
-        e.preventDefault(); //Preven form submission from default behavior (had unexpected scrolling on click)
+        e.preventDefault();
         const isHidden = filterList.classList.contains('hidden');
         filterList.classList.toggle('hidden');
         filterButton.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-        // Revent scrolling by restoring focus to the button
         filterButton.focus();
       });
-
-      // Track the current category filter (null means show all videos)
-      // Track the current category filter (null means show all videos)
-      let currentCategory = null;
 
       // Handle category filter changes
       const categoryRadios = document.querySelectorAll(
@@ -116,11 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const visibleList = document.querySelector(
             'ul[id="new"]:not(.list-hidden), ul[id="popular"]:not(.list-hidden), ul[id="trending"]:not(.list-hidden)'
           );
-          const targetId = visibleList ? visibleList.id : 'new'; // Default to 'new' if none visible
-          // Filter and sort videos based on the current list and category
+          const targetId = visibleList ? visibleList.id : 'new';
+          // Filter and sort videos based on the current list, category, and search query
           let filteredVideos = videos;
+          if (currentSearchQuery) {
+            filteredVideos = filteredVideos.filter(
+              (video) =>
+                video.title.toLowerCase().includes(currentSearchQuery) ||
+                video.description.toLowerCase().includes(currentSearchQuery)
+            );
+          }
           if (currentCategory) {
-            filteredVideos = videos.filter(
+            filteredVideos = filteredVideos.filter(
               (video) => video.category === currentCategory
             );
           }
@@ -147,17 +169,16 @@ document.addEventListener('DOMContentLoaded', () => {
           document
             .querySelector(`#${targetId}`)
             .classList.remove('list-hidden');
+          // Close the filter list and update aria-expanded
+          filterList.classList.add('hidden');
+          filterButton.setAttribute('aria-expanded', 'false');
+          filterButton.focus();
         });
       });
 
-      // Track the current search query
-      let currentSearchQuery = '';
-
-      // Handle search input
-      const searchForm = document.querySelector('.search-form');
+      // Handle real-time search input
       const searchInput = document.querySelector('#search-input');
-      searchForm.addEventListener('submit', (e) => {
-        e.preventDefault(); // Prevent form submission
+      searchInput.addEventListener('input', () => {
         currentSearchQuery = searchInput.value.trim().toLowerCase();
         // Get the currently visible list
         const visibleList = document.querySelector(
@@ -204,48 +225,4 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch((error) => {
       console.error('Error loading videos:', error);
     });
-
-  // Toggle the navigation menu when the hamburger icon is clicked
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    const isExpanded = hamburger.classList.contains('active');
-    hamburger.setAttribute('aria-expanded', isExpanded);
-  });
-
-  // Close the navigation menu when a link is clicked
-  navMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Event delegation for expand/collapse buttons
-  const sectionMedia = document.querySelector('.section-media');
-  sectionMedia.addEventListener('click', (e) => {
-    // Find the closest video article to the clicked button
-    const videoArticle = e.target.closest('.video-article');
-    if (!videoArticle) return; // Exit if no video article found
-
-    // Get the elements within this video article
-    const expandButton = videoArticle.querySelector('.js-elipsis');
-    const collapseButton = videoArticle.querySelector('.js-collapse');
-    const description = videoArticle.querySelector('.js-video-description');
-
-    // Handle expand button click
-    if (e.target.closest('.js-elipsis')) {
-      description.classList.remove('hidden');
-      collapseButton.classList.remove('hidden');
-      expandButton.classList.add('hidden');
-    }
-
-    // Handle collapse button click
-    if (e.target.closest('.js-collapse')) {
-      description.classList.add('hidden');
-      collapseButton.classList.add('hidden');
-      expandButton.classList.remove('hidden');
-    }
-  });
 });
