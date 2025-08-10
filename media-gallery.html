@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session</title>
+    <link rel="stylesheet" href="./media-gallery.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="decoration-container"></div>
+      <h1 class="header-title">Session</h1>
+      <button
+        class="hamburger"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+      >
+        <span class="bar"></span>
+        <span class="bar-middle"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-menu" id="mobile-nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#spots">Spots</a></li>
+          <li><a href="#media">Media Hall</a></li>
+          <li><a href="#tricks">Trick List</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="media-gallery-main">
+      <section class="section-navigation">
+        <nav class="vertical-text js-selection">
+          <ul>
+            <li><a href="#trending">Trending</a></li>
+            <li><a href="#popular">Popular</a></li>
+            <li><a class="selected" href="#new">New</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="section-media js-section-media">
+        <form class="search-form">
+          <label for="search-input" class="hidden">Search</label>
+          <input
+            type="search"
+            id="search-input"
+            name="q"
+            placeholder="Search"
+            class="search-input"
+          />
+          <button type="submit" class="search-button">
+            <img src="./images/search.png" alt="search icon" />
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            aria-controls="filter-list"
+            aria-expanded="false"
+          >
+            <img src="./images/filter.png" alt="Filter icon" />
+          </button>
+          <div class="filter-list hidden" id="filter-list">
+            <ul>
+              <li>
+                <button class="clear-filter" type="button">Clear</button>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="category"
+                  id="skateboarding"
+                  value="skateboarding"
+                />
+                <label for="skateboarding">skateboarding</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="category"
+                  id="snowboarding"
+                  value="snowboarding"
+                />
+                <label for="snowboarding">snowboarding</label>
+              </li>
+            </ul>
+          </div>
+        </form>
+        <ul class="new" id="new"></ul>
+        <ul class="popular list-hidden" id="popular"></ul>
+        <ul class="trending list-hidden" id="trending"></ul>
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
