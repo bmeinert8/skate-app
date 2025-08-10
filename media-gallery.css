@@ -69,7 +69,7 @@ body {
   display: flex;
   list-style: none;
   background-color: white;
-  height: 250px;
+  height: 180px;
 }
 
 .nav-menu li {
@@ -194,6 +194,44 @@ body {
 
 .hidden {
   display: none;
+}
+
+.filter-list {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* Animation properties */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.filter-list:not(.hidden) {
+  max-height: 200px; /* Adjust based on content height */
+  opacity: 1;
+}
+
+.clear-filter {
+  background: none;
+  border: none;
+  padding: 5px;
+  font-size: 0.9rem;
+  color: #007bff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.clear-filter:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
