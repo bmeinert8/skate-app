@@ -108,5 +108,115 @@
     "isPopular": true,
     "isTrending": false,
     "dateAdded": "2022-11-28"
+  },
+  {
+    "id": 11,
+    "title": "dustbox, THE SPIRIT VIDEO",
+    "description": "Spirit is a layered, multi-disciplinary concept and abstraction, existing for you.",
+    "thumbnailUrl": "./images/dustbox-spirit.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=vnVxtW51k0s&list=RDvnVxtW51k0s&start_radio=1",
+    "category": "snowboarding",
+    "isPopular": false,
+    "isTrending": true,
+    "dateAdded": "2024-11-22"
+  },
+  {
+    "id": 12,
+    "title": "BAD TRIP. A Skateboarding Film by Beyond Medals.",
+    "description": "BAD TRIP. A Skateboarding Film By Beyond Medals Featuring: Kevin Bækkel, Gabriel Fortunato, Alex Risvad & Josef Skott Jatta.",
+    "thumbnailUrl": "./images/bad-trip.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=fk9c2dfsaRA&list=RDfk9c2dfsaRA&start_radio=1",
+    "category": "skateboarding",
+    "isPopular": true,
+    "isTrending": false,
+    "dateAdded": "2025-07-08"
+  },
+  {
+    "id": 13,
+    "title": "Girl Skateboards: Yeah Right!",
+    "description": "Yeah Right is largely considered one of the most influential skate films of all time, is notable for its soundtrack, length, and the extensive use of special effects. The intro is one of the first films to capture skateboarding in ultra-slow motion. Yeah Right also features the celebrated 'Invisible Board' skit.",
+    "thumbnailUrl": "./images/yeah-right.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=52-62ywYPsk&list=RD52-62ywYPsk&start_radio=1",
+    "category": "skateboarding",
+    "isPopular": true,
+    "isTrending": true,
+    "dateAdded": "2003-11-22"
+  },
+  {
+    "id": 14,
+    "title": "Nike SB | QuickStrike",
+    "description": "QuickStrike is Nike SB’s latest full-length captured and edited on a “quick strike” timeline. Filmed in ten months across four continents and featuring over 40 members of the Nike SB squad. This one’s for everyone with skin in the game who stacked, battled, traveled, and trusted the plan.",
+    "thumbnailUrl": "./images/quick-strike.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Vi-mTjshD-s&list=RDVi-mTjshD-s&start_radio=1",
+    "category": "skateboarding",
+    "isPopular": false,
+    "isTrending": true,
+    "dateAdded": "2024-11-22"
+  },
+  {
+    "id": 15,
+    "title": "POLAR SKATE CO. - I Don't Even Know How To F****ing Airwalk",
+    "description": "Featuring:\nEmile Laurent\nDavid Stenström\nDylan Mills\nNick Boserio\nJamie Platt\nOskar Rozenberg\nShin Sanbongi\nPaul Grund\nRoman Gonzalez\nAaron Herrington\nDane Brady\n\nGuest Skaters:\nFrankie Decker\nChris Milic\nAnthony Del Togno Armanasco\nLukas Miller\n.",
+    "thumbnailUrl": "./images/airwalk.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=VXR6zlXeE7c&list=RDVXR6zlXeE7c&start_radio=1",
+    "category": "skateboarding",
+    "isPopular": true,
+    "isTrending": false,
+    "dateAdded": "2024-11-22"
+  },
+  {
+    "id": 16,
+    "title": "#RedBullSlideInTour The Movie | Planet Zebulon",
+    "description": "It’s the Red Bull Slide-In Tour: The Movie! A video recap of our tour across the East Coast, riding seven mountains in nine days during March 2022.",
+    "thumbnailUrl": "./images/slide.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=jKoM5mrkPok",
+    "category": "snowboarding",
+    "isPopular": false,
+    "isTrending": false,
+    "dateAdded": "2022-05-16"
+  },
+  {
+    "id": 17,
+    "title": "BLINK",
+    "description": "This Is Us In presents: BLINK. A snowboard film featuring Cam Fitzpatrick, Cooper Branham, Yuki Kadono and friends.  Blink capture the meaning of being in the moment, relishing in each turn and each stomp during a season that is awaited year after year; while remembering that it flashes before your eyes in hindsight. From waist deep powder in Japan to Grade-A Wyoming gaps, y’all don’t want to sleep on this one. It’s over in a BLINK.",
+    "thumbnailUrl": "./images/blink.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=B5_M_--zBsQ",
+    "category": "snowboarding",
+    "isPopular": true,
+    "isTrending": true,
+    "dateAdded": "2023-12-10"
+  },
+  {
+    "id": 18,
+    "title": "Disorder Skateboards - Distress",
+    "description": "From Kwesi's opening stunts to Nyjah's jaw-dropping closing act, Disorder's unreal roster unleashes an all-out tear for its first full length. SEND IT. ",
+    "thumbnailUrl": "./images/distress.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=GqgnRNaV6xk&list=RDGqgnRNaV6xk&start_radio=1",
+    "category": "skateboarding",
+    "isPopular": true,
+    "isTrending": false,
+    "dateAdded": "2025-07-25"
+  },
+  {
+    "id": 19,
+    "title": "New Balance Numeric's - Intervals",
+    "description": "From start to finish, the power trio of Westgate, Tiago and Foy deliver an awe-inspiring performance. This video will live on for eternity.",
+    "thumbnailUrl": "./images/intervals.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=hsjkd3kUTWo&list=RDhsjkd3kUTWo&start_radio=1&t=20s",
+    "category": "skateboarding",
+    "isPopular": false,
+    "isTrending": false,
+    "dateAdded": "2024-11-15"
+  },
+  {
+    "id": 20,
+    "title": "RETURN",
+    "description": "The power team of Torstein Horgmo, Charles Beckinsale and Jeff Pensiero from Baldface Valhalla has forever changed the landscape of snowboarding by melding big mountain riding with man-made fantasy features creating extensive flowy lines that have never before been attempted. Journey with the crew as they maximize their airtime revisiting the north island of Japan and exploring the Valhalla mountain range of the interior British Colombia in Canada. With the skills of Tim Manning and Gabriel Kocher behind the lens, this is a cinematic journey that will stir the senses.",
+    "thumbnailUrl": "./images/return.jpg",
+    "youtubeUrl": "https://www.youtube.com/watch?v=ZTAAaKFsLGA&t=1s",
+    "category": "snowboarding",
+    "isPopular": false,
+    "isTrending": true,
+    "dateAdded": "2024-12-05"
   }
 ]
